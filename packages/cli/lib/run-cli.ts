@@ -50,7 +50,7 @@ function setUpOutputWatching(captureStderr: boolean, forwardOutput: boolean) {
     encoding: string,
     callback: Function
   ) => {
-    onlyStdout.write(chunk);
+    onlyStdout.write(chunk.toString());
     appendFileSync(stdoutAndStderrLogFileHandle, chunk);
     if (forwardOutput) {
       stdoutWrite.apply(process.stdout, [chunk, encoding, callback]);
